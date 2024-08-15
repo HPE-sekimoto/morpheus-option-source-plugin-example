@@ -6,7 +6,7 @@ import groovy.util.logging.Slf4j
 A class to represent a JSON REST API. This acts like an REST API purely for convenience purposes and to ensure the example can be widely used.
 **/
 @Slf4j
-public class DummyJsonApi {
+public class AzureJsonApi {
   
   static final MATRIX_FILMS = [
     [id: 1, title: "The Matrix"],
@@ -35,7 +35,7 @@ public class DummyJsonApi {
   ]
   
   public static getMatrixFilms(String name) {
-    log.debug("DummyJsonApi getMatrixFilm: ${name}")
+    log.debug("AzureJsonApi getMatrixFilm: ${name}")
     def rtn = MATRIX_FILMS
     rtn = rtn.findResults { film ->
       if (film?.title?.toLowerCase()?.contains(name?.toLowerCase())) {
@@ -46,12 +46,12 @@ public class DummyJsonApi {
   }
   
   public static getMatrixFilms(query = [:]) {
-    log.debug("DummyJsonApi getMatrixFilms: ${query}")
+    log.debug("AzureJsonApi getMatrixFilms: ${query}")
     return toJSON(MATRIX_FILMS)
   }
   
   public static getMatrixCharacters(query = [:]) {
-    log.debug("DummyJsonApi getMatrixCharacters: ${query}")
+    log.debug("AzureJsonApi getMatrixCharacters: ${query}")
     def rtn = CHARACTERS
     if (query.filmId) {
       rtn = rtn?.findResults { character ->
@@ -68,7 +68,7 @@ public class DummyJsonApi {
   }
   
   public static getMatrixSpecialMoves(query = [:]) {
-    log.debug("DummyJsonApi getMatrixSpecialMoves: ${query}")
+    log.debug("AzureJsonApi getMatrixSpecialMoves: ${query}")
     def rtn = SPECIAL_MOVES
     if (query.filmId) {
       rtn = rtn?.findResults { move ->
