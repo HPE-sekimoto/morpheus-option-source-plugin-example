@@ -5,7 +5,7 @@ buildscript {
       maven { url "https://plugins.gradle.org/m2/" }
   }
   dependencies {
-      classpath "com.github.jengelman.gradle.plugins:shadow:6.0.0"
+      classpath "com.github.johnrengelman:shadow:8.1.1"
       classpath "com.bertramlabs.plugins:asset-pipeline-gradle:$assetPipelineVersion"
   }
 }
@@ -14,19 +14,20 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 group = 'com.morpheusdata'
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+// sourceCompatibility = '1.8'
+// targetCompatibility = '1.8'
 
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
 repositories {
     mavenCentral()
-		maven { url "https://plugins.gradle.org/m2/" }
-		jcenter()
-		mavenLocal()
+    maven { url "https://plugins.gradle.org/m2/" }
+    jcenter()
+    mavenLocal()
 }
 
 dependencies {
